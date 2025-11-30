@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crimson Sports Collectibles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Crimson Sports Collectibles</h1>
+    <nav>
+        <button id="nav-shop">Shop</button>
+        <button id="nav-admin">Inventory</button>
+        <button id="nav-login">Login</button>
+        <span id="user-info"></span>
+    </nav>
+</header>
+
+<main>
+    <!-- Login Section -->
+    <section id="login-section" class="hidden">
+        <h2>Login</h2>
+        <label>
+            User Type:
+            <select id="login-userType">
+                <option value="Customer">Customer</option>
+                <option value="Employee">Employee</option>
+            </select>
+        </label>
+        <label>Email: <input type="email" id="login-email"></label>
+        <label>Password: <input type="password" id="login-password"></label>
+        <button id="login-btn">Login</button>
+        <p id="login-message"></p>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop-section">
+        <h2>Shop Products</h2>
+        <div class="filters">
+            <input type="text" id="search-box" placeholder="Search products..." />
+            <button id="search-btn">Search</button>
+        </div>
+        <div id="products-container"></div>
+
+        <h3>Your Cart</h3>
+        <div id="cart-container"></div>
+        <button id="checkout-btn">Checkout</button>
+        <p id="checkout-message"></p>
+    </section>
+
+    <!-- Inventory / Admin Section -->
+    <section id="admin-section" class="hidden">
+        <h2>Inventory Management (Employee)</h2>
+        <button id="reload-products-btn">Reload Products</button>
+        <div id="admin-products-container"></div>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
