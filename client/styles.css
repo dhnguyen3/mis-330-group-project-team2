@@ -1,0 +1,231 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #800000;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav button {
+    margin-right: 0.5rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+#products-container, #admin-products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    width: 220px;
+}
+
+.product-card h3 {
+    margin-top: 0;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 0.25rem 0;
+}
+
+.quick-login-btn {
+    padding: 0.75rem 1rem;
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.quick-login-btn:hover {
+    background-color: #a00000;
+}
+
+.quick-login-btn:active {
+    background-color: #600000;
+}
+
+/* Management Dashboard Styles */
+.mgmt-tab-btn {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px 4px 0 0;
+}
+
+.mgmt-tab-btn.active {
+    background-color: #800000;
+    color: white;
+}
+
+.mgmt-tab {
+    margin-top: 1rem;
+}
+
+#inventory-container, #transactions-container {
+    margin-top: 1rem;
+}
+
+.transaction-card {
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+/* Modal Styles */
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2rem;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+#product-form label {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+#product-form input,
+#product-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    box-sizing: border-box;
+}
+
+#product-form textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+#product-form button {
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    padding: 0.5rem;
+}
+
+.edit-product-btn,
+.delete-product-btn,
+.update-stock-btn {
+    margin: 0.25rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.edit-product-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.delete-product-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.update-stock-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.user-type-tab {
+    margin-top: 1rem;
+}
+
+#customers-container,
+#employees-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.edit-user-btn,
+.delete-user-btn {
+    margin: 0.25rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+.edit-user-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.delete-user-btn {
+    background-color: #dc3545;
+    color: white;
+}

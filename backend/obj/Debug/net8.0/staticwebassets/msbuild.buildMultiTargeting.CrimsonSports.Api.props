@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\CrimsonSports.Api.props" />
-</Project>

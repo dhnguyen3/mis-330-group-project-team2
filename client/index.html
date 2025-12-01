@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crimson Sports Collectibles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Crimson Sports Collectibles</h1>
+    <nav>
+        <button id="nav-shop">Shop</button>
+        <button id="nav-admin">Inventory</button>
+        <button id="nav-login">Login</button>
+        <span id="user-info"></span>
+    </nav>
+</header>
+
+<main>
+    <!-- Login Section -->
+    <section id="login-section" class="hidden">
+        <div id="login-tab">
+            <h2>Login</h2>
+            <label>Email: <input type="email" id="login-email"></label>
+            <label>Password: <input type="password" id="login-password"></label>
+            <button id="login-btn">Login</button>
+            <p id="login-message"></p>
+            <p>Don't have an account? <a href="#" id="show-register">Register here</a></p>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ccc;">
+                <h3>Quick Login</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button id="quick-login-customer1" class="quick-login-btn">Login as Customer 1</button>
+                    <button id="quick-login-customer2" class="quick-login-btn">Login as Customer 2</button>
+                    <button id="quick-login-manager" class="quick-login-btn">Login as Manager</button>
+                    <button id="quick-login-cashier" class="quick-login-btn">Login as Cashier</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="register-tab" class="hidden">
+            <h2>Register</h2>
+            <label>First Name: <input type="text" id="reg-firstName" required></label>
+            <label>Last Name: <input type="text" id="reg-lastName" required></label>
+            <label>Email: <input type="email" id="reg-email" required></label>
+            <label>Password: <input type="password" id="reg-password" required></label>
+            <label>Phone: <input type="tel" id="reg-phone"></label>
+            <label>Address: <input type="text" id="reg-address"></label>
+            <label>City: <input type="text" id="reg-city"></label>
+            <label>State: <input type="text" id="reg-state"></label>
+            <label>Zipcode: <input type="text" id="reg-zipcode"></label>
+            <button id="register-btn">Register</button>
+            <p id="register-message"></p>
+            <p>Already have an account? <a href="#" id="show-login">Login here</a></p>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop-section">
+        <h2>Shop Products</h2>
+        <div class="filters">
+            <input type="text" id="search-box" placeholder="Search products..." />
+            <select id="category-filter">
+                <option value="">All Categories</option>
+            </select>
+            <select id="sort-options">
+                <option value="name">Sort by Name</option>
+                <option value="price_asc">Price: Low to High</option>
+                <option value="price_desc">Price: High to Low</option>
+                <option value="category">Sort by Category</option>
+                <option value="stock">Sort by Stock</option>
+            </select>
+            <button id="search-btn">Search</button>
+        </div>
+        <div id="products-container"></div>
+
+        <h3>Your Cart</h3>
+        <div id="cart-container"></div>
+        <button id="checkout-btn">Checkout</button>
+        <p id="checkout-message"></p>
+    </section>
+
+    <!-- Inventory / Admin Section -->
+    <section id="admin-section" class="hidden">
+        <h2>Management Dashboard</h2>
+        <div style="margin-bottom: 20px;">
+            <button id="nav-products-mgmt" class="mgmt-tab-btn active">Products</button>
+            <button id="nav-inventory-mgmt" class="mgmt-tab-btn">Inventory</button>
+            <button id="nav-transactions-mgmt" class="mgmt-tab-btn">Transactions</button>
+            <button id="nav-users-mgmt" class="mgmt-tab-btn">Users</button>
+        </div>
+        
+        <!-- Products Management Tab -->
+        <div id="products-mgmt-tab" class="mgmt-tab">
+            <h3>Product Management</h3>
+            <button id="add-product-btn">Add New Product</button>
+            <div id="admin-products-container"></div>
+        </div>
+        
+        <!-- Inventory Management Tab -->
+        <div id="inventory-mgmt-tab" class="mgmt-tab hidden">
+            <h3>Inventory Management</h3>
+            <button id="reload-inventory-btn">Reload Inventory</button>
+            <button id="view-low-stock-btn">View Low Stock Items</button>
+            <div id="inventory-container"></div>
+        </div>
+        
+        <!-- Transactions Management Tab -->
+        <div id="transactions-mgmt-tab" class="mgmt-tab hidden">
+            <h3>Transaction Management</h3>
+            <button id="reload-transactions-btn">Reload Transactions</button>
+            <div id="transactions-container"></div>
+        </div>
+        
+        <!-- Users Management Tab -->
+        <div id="users-mgmt-tab" class="mgmt-tab hidden">
+            <h3>User Management</h3>
+            <div style="margin-bottom: 1rem;">
+                <button id="nav-customers-tab" class="mgmt-tab-btn active">Customers</button>
+                <button id="nav-employees-tab" class="mgmt-tab-btn">Employees</button>
+            </div>
+            
+            <!-- Customers Management -->
+            <div id="customers-mgmt" class="user-type-tab">
+                <button id="add-customer-btn">Add New Customer</button>
+                <button id="reload-customers-btn">Reload Customers</button>
+                <div id="customers-container"></div>
+            </div>
+            
+            <!-- Employees Management -->
+            <div id="employees-mgmt" class="user-type-tab hidden">
+                <button id="add-employee-btn">Add New Employee</button>
+                <button id="reload-employees-btn">Reload Employees</button>
+                <div id="employees-container"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Edit Modal -->
+    <div id="product-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-title">Add Product</h3>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                <label>Product Name: <input type="text" id="product-name" required></label>
+                <label>Category: <input type="text" id="product-category"></label>
+                <label>Description: <textarea id="product-description"></textarea></label>
+                <label>Price: <input type="number" id="product-price" step="0.01" required></label>
+                <label>Stock Quantity: <input type="number" id="product-stock" required></label>
+                <label>Supplier: <input type="text" id="product-supplier"></label>
+                <button type="submit">Save</button>
+                <button type="button" id="cancel-product-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- User Edit Modal -->
+    <div id="user-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-user-modal">&times;</span>
+            <h3 id="user-modal-title">Add User</h3>
+            <form id="user-form">
+                <input type="hidden" id="user-id">
+                <input type="hidden" id="user-type">
+                <label>First Name: <input type="text" id="user-firstName" required></label>
+                <label>Last Name: <input type="text" id="user-lastName" required></label>
+                <label>Email: <input type="email" id="user-email" required></label>
+                <label>Password: <input type="password" id="user-password" required></label>
+                <label>Phone: <input type="tel" id="user-phone"></label>
+                <div id="customer-fields">
+                    <label>Address: <input type="text" id="user-address"></label>
+                    <label>City: <input type="text" id="user-city"></label>
+                    <label>State: <input type="text" id="user-state"></label>
+                    <label>Zipcode: <input type="text" id="user-zipcode"></label>
+                </div>
+                <div id="employee-fields" class="hidden">
+                    <label>Role: 
+                        <select id="user-role">
+                            <option value="Manager">Manager</option>
+                            <option value="Cashier">Cashier</option>
+                            <option value="Employee">Employee</option>
+                        </select>
+                    </label>
+                </div>
+                <button type="submit">Save</button>
+                <button type="button" id="cancel-user-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
